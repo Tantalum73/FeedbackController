@@ -1,0 +1,6 @@
+framework module Pods_FeedbackController_Example {
+  umbrella header "Pods-FeedbackController_Example-umbrella.h"
+
+  export *
+  module * { export * }
+}

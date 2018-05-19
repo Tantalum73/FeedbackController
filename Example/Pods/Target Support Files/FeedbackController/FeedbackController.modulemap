@@ -1,0 +1,6 @@
+framework module FeedbackController {
+  umbrella header "FeedbackController-umbrella.h"
+
+  export *
+  module * { export * }
+}

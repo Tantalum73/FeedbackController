@@ -1,0 +1,16 @@
+PODS:
+  - FeedbackController (1.0)
+
+DEPENDENCIES:
+  - FeedbackController (from `../`)
+
+EXTERNAL SOURCES:
+  FeedbackController:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  FeedbackController: cc49ebd44dc7129be54ec6ce619d724eb0904e4f
+
+PODFILE CHECKSUM: 049c70c367f04739210c2aca463dfdeff33cc9fa
+
+COCOAPODS: 1.5.2
