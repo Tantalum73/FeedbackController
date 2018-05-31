@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AudioToolbox
 import FeedbackController
 
 class ViewController: UIViewController {
@@ -23,6 +24,11 @@ class ViewController: UIViewController {
         // In this state, we need to prepare for something, yet we do not know what to prepare for.
         // On what type you start your preparation is not important. The main thing is that the Taptic Engine is in its active state.
         prepareFeedback(for: .impact(style: .medium))
+        
+        // Show a warning if the current device does not support the Taptic Engine.
+        if UIDevice.isTapticEngineSupported == false {
+            tapticEngineIsMissing()
+        }
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -69,6 +75,17 @@ class ViewController: UIViewController {
     @IBAction func selection(_ sender: Any) {
         prepareFeedback(for: .selection)
         hapticFeedbackSelectionChanged()
+    }
+    
+    private func tapticEngineIsMissing() {
+        // Vibrate and show a warning.
+        
+        let alert = UIAlertController(title: "Taptic Engine Missing", message: "The device does not support haptic feedback as there is no Taptic Engine built into it.", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+        
+        present(alert, animated: true, completion: nil)
+        AudioServicesPlayAlertSound(kSystemSoundID_Vibrate)
+        
     }
 }
 
