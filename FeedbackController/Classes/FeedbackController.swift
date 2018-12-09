@@ -33,7 +33,7 @@ import UIKit
 /// - selection: Use this type to indicate selection between different values. Those can be numeric or other discrete values like a switch.
 /// - notification: Use this type to indicate that a task has succeded or failed. It can also be used to display a warning to the user. Usually, it uses a more complex haptics than the other types.
 public enum TapticFeedbackType {
-    case impact(style: UIImpactFeedbackStyle), selection, notification
+    case impact(style: UIImpactFeedbackGenerator.FeedbackStyle), selection, notification
 }
 
 @available(iOS 10.0, *)
@@ -88,7 +88,7 @@ final public class FeedbackController: NSObject {
     ///
     /// ```FeedbackController.prepare(for:)``` should be called prior to this method. Otherwise the Taptic Engine is not prepared for the feedback which can lead to delays. Avoid delays when the feedback is sycronized with UI events or sound by calling ```FeedbackController.prepare(for:)``` first.
     /// - Parameter notificationType: The type of the notification.
-    public func notificationOccured(_ notificationType: UINotificationFeedbackType) {
+    public func notificationOccured(_ notificationType: UINotificationFeedbackGenerator.FeedbackType) {
         if feedbackGenerator == nil || (feedbackGenerator is UINotificationFeedbackGenerator) == false {
             prepare(for: .notification)
             print("You should prepare before starting a feedback action! I will do it for you.")
@@ -194,7 +194,7 @@ public extension UIViewController {
     /// However, it does not prepare the engine. Please call ````UIViewController.prepareFeedback(for:)``` prior to the actual haptic feedback in order to improve the timing.
     ///
     /// - Parameter type: The type of notification. Use this parameter to control the style of the taptic feedback, for example if you want to present an error or warning message.
-    public func hapticFeedbackNotificationOccured(with type: UINotificationFeedbackType) {
+    public func hapticFeedbackNotificationOccured(with type: UINotificationFeedbackGenerator.FeedbackType) {
         if #available(iOS 10.0, *) {
             if UIDevice.isTapticEngineSupported {
                 FeedbackController.shared.notificationOccured(type)

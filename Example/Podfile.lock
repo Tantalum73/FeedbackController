@@ -9,8 +9,8 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  FeedbackController: cc49ebd44dc7129be54ec6ce619d724eb0904e4f
+  FeedbackController: 5bd37cf075099fac8b95d38ffaf10bdbfa162d34
 
 PODFILE CHECKSUM: 049c70c367f04739210c2aca463dfdeff33cc9fa
 
-COCOAPODS: 1.5.2
+COCOAPODS: 1.5.3

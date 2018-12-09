@@ -29,7 +29,7 @@ It enables you to integrate haptic feedback in two lines of code.
   s.source           = { :git => 'https://github.com/Tantalum73/FeedbackController.git', :tag => s.version.to_s }
   s.social_media_url = 'https://twitter.com/Klaarname'
 
-  s.ios.deployment_target = '9.3'
+  s.ios.deployment_target = '10.0'
 
   s.source_files = 'FeedbackController/Classes/**/*'
   s.swift_version = '4.2'
